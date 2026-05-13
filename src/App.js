@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import "./App.css";
+
+import { Box } from "@mui/material";
+
+import BgBack from "./components/images/Noise.png";
+
+import RouterLay from "./components/router/router";
+
+AOS.init();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Box
+        className="App-header"
+        sx={{
+          position: "relative",
+          background: "linear-gradient(108deg, #172231 0%, #030507 50%, #030507 70%)",
+          width: "100%",
+          "&:after": {
+            width: "100%",
+            position: "absolute",
+            background: `url(${BgBack})`,
+            mixBlendMode: "soft-light",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            left: "0px",
+            top: "0px",
+            // zIndex: 2,
+          },
+        }}
+      >
+        <RouterLay />
+      </Box>
+    </>
   );
 }
 
